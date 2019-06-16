@@ -1,6 +1,6 @@
 package com.jaafar.data.search.controller;
 
-import com.jaafar.data.common.Exception.BaseBusinessException;
+import com.jaafar.data.common.exception.BaseBusinessException;
 import com.jaafar.data.common.VO.BaseResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

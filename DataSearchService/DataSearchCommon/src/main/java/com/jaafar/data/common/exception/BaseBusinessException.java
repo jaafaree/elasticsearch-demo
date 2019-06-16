@@ -1,4 +1,4 @@
-package com.jaafar.data.common.Exception;
+package com.jaafar.data.common.exception;
 
 public class BaseBusinessException extends RuntimeException {
 
