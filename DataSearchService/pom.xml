@@ -17,6 +17,7 @@
     <modules>
         <module>DataSearchCommon</module>
         <module>DataSearchEndpoint</module>
+        <module>DataSearchSeeder</module>
     </modules>
     <packaging>pom</packaging>
 
