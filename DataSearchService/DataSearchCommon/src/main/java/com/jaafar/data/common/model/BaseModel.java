@@ -9,7 +9,7 @@ package com.jaafar.data.common.model;
 public class BaseModel {
 
     private String transactionId;
-    private long count = -1;
+    private Long count = -1L;
 
     public String getTransactionId() {
         return transactionId;
@@ -19,11 +19,11 @@ public class BaseModel {
         this.transactionId = transactionId;
     }
 
-    public long getCount() {
+    public Long getCount() {
         return count;
     }
 
-    public void setCount(long count) {
+    public void setCount(Long count) {
         this.count = count;
     }
 }
