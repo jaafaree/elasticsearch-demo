@@ -1,5 +1,13 @@
 version: '3'
 
+x-template: &flyway-template
+  image: boxfuse/flyway:latest
+  volumes:
+    - .:/flyway/sql
+    - .:/flyway/conf
+  depends_on:
+    - db
+
 services:
 
   elasticsearch: # Elasticsearch Instance
@@ -23,6 +31,35 @@ services:
     image: docker.elastic.co/kibana/kibana:7.0.0
     ports:
       - "5601:5601"
+    networks:
+      - elastic
+      - ingress
+
+  flyway-clean:
+    <<: *flyway-template
+    command: clean
+
+  flyway-migrate:
+    <<: *flyway-template
+    command: migrate
+
+  flyway-info:
+    <<: *flyway-template
+    command: info
+
+  db:
+    container_name: db
+    images: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: postgres
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
     networks:
       - elastic
       - ingress
