@@ -16,6 +16,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 public class SingletonSeederQueue {
 
     private final static int QUEUE_CAPACITY = 1024;
+    private final static int RETRY_TIME = 3;
 
     private BlockingDeque<LegalEntityModel> seederQueue;
 
@@ -23,11 +24,16 @@ public class SingletonSeederQueue {
         this.seederQueue = new LinkedBlockingDeque<>(QUEUE_CAPACITY);
     }
 
-    public void offerQueque(LegalEntityModel legalEntityModel) {
+    public void offerQueue(LegalEntityModel legalEntityModel) {
+        int retryCount = 0;
         try {
             this.seederQueue.offer(legalEntityModel);
         } catch (Exception e) {
             log.error("offer queue failed, legal entity is: {}", legalEntityModel,  e);
+            while (retryCount < RETRY_TIME) {
+                retryCount ++;
+                offerQueue(legalEntityModel);
+            }
         }
     }
 

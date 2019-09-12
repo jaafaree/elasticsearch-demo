@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/data-search.iml" filepath="$PROJECT_DIR$/data-search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DataSearchCommon/data-search-common.iml" filepath="$PROJECT_DIR$/DataSearchCommon/data-search-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DataSearchEndpoint/data-search-endpoint.iml" filepath="$PROJECT_DIR$/DataSearchEndpoint/data-search-endpoint.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DataSearchSeeder/data-search-seeder.iml" filepath="$PROJECT_DIR$/DataSearchSeeder/data-search-seeder.iml" />
+    </modules>
+  </component>
+</project>
